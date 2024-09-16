@@ -3,25 +3,164 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.bg-main-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  margin-top: -150px; /* Adjust this value to move the content up */
+}
+
+.hero-text {
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding-top: 10px;
+  line-height: 1.4;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center; /* Center the input container */
+  margin: 2rem 0;
+}
+
+.search-input {
+  padding: 12px 12px 12px 40px; /* Add padding for the icon */
+  background-color: transparent;
+  border-radius: 50px;
+  border: 1px solid var(--foreground);
+  font-size: 1rem;
+  color: var(--foreground);
+  width: 100%; /* Full width for small screens */
+  max-width: 600px; /* Max width for larger screens */
+}
+.search-icon svg,
+.hex-button svg {
+  transition: transform 0.3s ease;
+}
+
+.search-icon:hover svg,
+.hex-button:hover svg {
+  transform: scale(1.2);
+}
+
+.search-input::placeholder {
+  color: var(--foreground); /* Adjust placeholder color if needed */
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px; /* Position the icon inside the input field */
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  height: 100%;
+  pointer-events: none; /* Prevent clicks on the icon from affecting the input */
+
+}
+
+.search-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ensure the input field and icon stay together in the container */
+.search-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.hex-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  transform: rotate(90deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+    margin-top: -100px; /* Adjust margin-top for smaller screens */
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+
+  .search-input {
+    padding: 10px 10px 10px 35px; /* Adjust padding for the icon */
+    font-size: 0.875rem;
+  }
+
+  .search-icon {
+    left: 10px; /* Adjust positioning */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+    margin-top: -50px; /* Adjust margin-top for very small screens */
+  }
+
+  .hero-text {
+    font-size: 0.875rem;
+  }
+
+  .search-input {
+    padding: 8px 8px 8px 30px; /* Adjust padding for the icon */
+    font-size: 0.75rem;
+  }
+
+  .search-icon {
+    left: 8px; /* Adjust positioning */
+  }
+
+  .hex-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hex-button svg {
+    width: 50px;
+    height: 50px;
   }
 }
